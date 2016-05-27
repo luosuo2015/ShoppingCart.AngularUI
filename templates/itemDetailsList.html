@@ -1,0 +1,41 @@
+﻿<div ng-controller="itemDetailsListCtrl">
+    <table style="background-color:#FFFFFF; border:solid 2px #6D7B8D; padding:5px; width:99%; table-layout:fixed" cellpadding="2" cellspacing="2">
+        <tr ng-show="showItem">
+            <td colspan="6" align="right">
+                <input type="button" value="Click for My Shopping Cart Items" style="background-color:#4c792d; color:#FFFFFF; font-size:large;" ng-click="showCart()" />
+            </td>
+        </tr>
+        <tr style="height: 30px; background-color: #336699; color:#FFFFFF; border: solid 1px #659EC7;">
+            <td width="40" align="center"><b>Image</b></td>
+            <td width="40" align="center" style="border:solid 1px #FFFFFF; "><b>Item Code</b></td>
+            <td width="120" align="center" style="border:solid 1px #FFFFFF;"><b>Item Name</b></td>
+            <td width="120" align="center" style="border:solid 1px #FFFFFF;"><b>Description</b></td>
+            <td width="40" align="center" style="border:solid 1px #FFFFFF;"><b>Price</b></td>
+            <td width="90" align="center" style="border:solid 1px #FFFFFF;"><b>User Name</b></td>
+            <td width="90" align="center" style="border:solid 1px #FFFFFF;"><b>Action</b></td>
+        </tr>
+        <tr style="height: 30px; background-color: #336699; color:#FFFFFF; border: solid 1px #659EC7;">
+            <td width="40" align="center">Filter By -></td>
+            <td width="40" align="center" style="border:solid 1px #FFFFFF; "><input style="width:60px;" ng-model="search.Item_ID" placeholder="Item Code..." /></td>
+            <td width="120" align="center" style="border:solid 1px #FFFFFF;"><input style="width:100px;" ng-model="search.Item_Name" placeholder="Item Name..." /></td>
+            <td width="120" align="center" style="border:solid 1px #FFFFFF;"><input style="width:100px;" ng-model="search.Description" placeholder="Description..." /></td>
+            <td width="40" align="center" style="border:solid 1px #FFFFFF;"></td>
+            <td width="90" align="center" style="border:solid 1px #FFFFFF;"><input style="width:60px;" ng-model="search.AddedBy" placeholder="User Name..." /></td>
+            <td width="90" align="center" style="border:solid 1px #FFFFFF;"></td>
+        </tr>
+        <tbody ng-repeat="detail in ItemDetails | filter:search">
+            <tr>
+                <td align="center" style="border:solid 1px #659EC7;">
+                    <img src="/Images/{{detail.Image_Name}}" alt="{{detail.Item_Name}}"
+                         style="width:48px; height:48px;">
+                </td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.Item_ID}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.Item_Name}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.Description}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.Item_Price | number:0}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.AddedBy}}</td>
+                <td align="center" style="border:solid 1px #659EC7;"><input type="button" style="background-color:#e11919; color:#FFFFFF; font-size:large;" value="detail" ng-click="setItem(detail)" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
