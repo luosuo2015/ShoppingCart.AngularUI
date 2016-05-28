@@ -1,8 +1,10 @@
-﻿//option1--broadcast rootscope
-app.controller('singleItemCtrl', ['$scope', 'AngularJS_WCFService', '$rootScope', function ($scope, AngularJS_WCFService, $rootScope) {
+﻿//option2 --only use $watch
+app.controller('singleItemCtrl', ['$scope', 'AngularJS_WCFService', function ($scope, AngularJS_WCFService) {
     var self = this;
-    debugger;
-    $scope.$on('itemchanged', function (event, item) {
-        $scope.item = AngularJS_WCFService.getItem();
+    debugger;    
+    $scope.$watch(
+        function () { return AngularJS_WCFService.getItem(); },
+        function (newValue, oldValue) {
+        if (newValue !== oldValue) $scope.item = newValue;
     })
 }]);
