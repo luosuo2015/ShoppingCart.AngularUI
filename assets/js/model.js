@@ -1,12 +1,20 @@
 ﻿app.factory("AngularJS_WCFService", ['$http', function ($http) {
     var itemDetails;
-    var item;
+    var item = {
+        Item_ID: '',
+        Item_Name: '',
+        Description: '',
+        Item_Price: '',
+        AddedBy:''
+    };
     var ret = {
-        GetItem: function () {
+        getItem: function () {
             return item;
         },
-        setItem: function(singleitem){
+        setItem: function (singleitem) {
+            debugger;
             item = singleitem;
+            alert("setItem --" + item.Item_ID);
         },
         GetItemDetails: function () {
             return $http.get("http://localhost:30362/ItemDetailsWCF.svc/GetAll")

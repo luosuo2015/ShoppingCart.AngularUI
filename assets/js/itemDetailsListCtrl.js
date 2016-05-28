@@ -1,13 +1,13 @@
-﻿app.controller('itemDetailsListCtrl', ['$scope', '$http', 'AngularJS_WCFService', function ($scope, $http, AngularJS_WCFService) {
-    var self = this;
-    showItem = false;
-    $scope.setItem = function (item) {
-        debugger;
-        showItem = true;
-        alert("111111 ---" + item.Item_ID);
-        AngularJS_WCFService.item = $scope.item;
-    }
-    AngularJS_WCFService.GetItemDetails().then(function (itemDetails) {
+﻿//option1--broadcast rootscope
+app.controller('itemDetailsListCtrl', ['$scope', 'AngularJS_WCFService', '$rootScope', function ($scope, AngularJS_WCFService, $rootScope) {
+        var self = this;
+        showItem = false;
+        $scope.setItem = function (detail) {
+            debugger;
+            AngularJS_WCFService.setItem(detail);
+            $rootScope.$broadcast('itemchanged', AngularJS_WCFService.item);
+        };
+        AngularJS_WCFService.GetItemDetails().then(function (itemDetails) {
         $scope.ItemDetails = itemDetails;
     });     
 }]);
