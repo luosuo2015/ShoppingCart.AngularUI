@@ -1,4 +1,4 @@
 ﻿var app = angular.module("theapp", ['ngRoute']);
-//app.run(['AngularJS_WCFService', function (wcfservice) {
-//    wcfservice.GetItemDetails();
-//}]);
+app.run(['$rootScope', 'AngularJS_WCFService', function ($rootScope, AngularJS_WCFService) {
+    $rootScope.date = new Date();
+}]);

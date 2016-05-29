@@ -1,12 +1,11 @@
-﻿//option2 --only use $watch
-app.controller('itemDetailsListCtrl', ['$scope', 'AngularJS_WCFService', function ($scope, AngularJS_WCFService) {
+﻿app.controller('itemDetailsListCtrl', ['$scope', 'AngularJS_WCFService', '$rootScope', function ($scope, AngularJS_WCFService, $rootScope) {
     var self = this;
-    showItem = false;
-    $scope.setItem = function (detail) { 
+    showItem = true;
+    $scope.setItem = function (detail) {
         showItem = true;
         AngularJS_WCFService.setItem(detail);
     }
     AngularJS_WCFService.GetItemDetails().then(function (itemDetails) {
         $scope.ItemDetails = itemDetails;
-    });     
+    });
 }]);

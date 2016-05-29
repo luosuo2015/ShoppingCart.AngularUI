@@ -1,7 +1,7 @@
 ﻿<div ng-controller="singleItemCtrl">
     <img src="/Images/blank.gif" alt="" width="1" height="6" />
     <table id="tblContainer" style="width:99%; table-layout:fixed;">
-        <tr >
+        <tr>
             <td>
                 <table style="background-color:#FFFFFF; border:dashed 3px #6D7B8D; padding:5px; width:99%; table-layout:fixed;" cellpadding="2" cellspacing="2">
                     <tr style="height:50px; background-color:#336699; color:#FFFFFF;  border:solid 1px #659EC7;">
@@ -11,7 +11,7 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><img alt="" src="~/Images/{{Imagename}}" /></td>
+                                    <td><img alt="" src="/Images/{{item.Image_Name}}" /></td>
                                     <td width="30"></td>
                                     <td valign="top">
                                         <table style="color:#9F000F; font-size:large" cellpadding="4" cellspacing="6">
@@ -50,6 +50,6 @@
                 </table>
                 <img src="/Images/blank.gif" alt="" width="1" height="4" />
             </td>
-        </tr> 
+        </tr>
     </table>
 </div>
