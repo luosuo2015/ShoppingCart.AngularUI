@@ -26,14 +26,14 @@
         <tbody ng-repeat="detail in ItemDetails | filter:search">
             <tr>
                 <td align="center" style="border:solid 1px #659EC7;">
-                    <img src="/Images/{{detail.Image_Name}}" alt="{{detail.Item_Name}}"
+                    <img src="/Images/{{detail.imageName}}" alt="{{detail.Item_Name}}"
                          style="width:48px; height:48px;">
                 </td>
-                <td align="center" style="border:solid 1px #659EC7;">{{detail.Item_ID}}</td>
-                <td align="center" style="border:solid 1px #659EC7;">{{detail.Item_Name}}</td>
-                <td align="center" style="border:solid 1px #659EC7;">{{detail.Description}}</td>
-                <td align="center" style="border:solid 1px #659EC7;">{{detail.Item_Price | number:0}}</td>
-                <td align="center" style="border:solid 1px #659EC7;">{{detail.AddedBy}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.itemID}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.itemName}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.description}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.itemPrice | number:0}}</td>
+                <td align="center" style="border:solid 1px #659EC7;">{{detail.addedBy}}</td>
                 <td align="center" style="border:solid 1px #659EC7;"><input type="button" style="background-color:#e11919; color:#FFFFFF; font-size:large;" value="detail" ng-click="setItem(detail)" /></td>
             </tr>
         </tbody>
